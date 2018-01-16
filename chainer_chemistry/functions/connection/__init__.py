@@ -1,0 +1,1 @@
+from chainer_chemistry.functions.connection.spectral_graph_convolution import SpectralGraphConvolutionFunction  # NOQA

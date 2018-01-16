@@ -1,0 +1,1 @@
+from chainer_chemistry.functions.pooling.spectral_graph_max_pooling import SpectralGraphMaxPoolingFunction  # NOQA
