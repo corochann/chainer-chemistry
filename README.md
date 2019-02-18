@@ -31,7 +31,7 @@ These are automatically added to the system when installing the library via the
 installed manually:
 
  - [`rdkit (release 2017.09.3.0)`](https://github.com/rdkit/rdkit)
- 
+
 Please refer to the RDKit [documentation](http://www.rdkit.org/docs/Install.html)
 for more information regarding the installation steps.
 
@@ -42,7 +42,15 @@ currently supported:
 | ------------------: | --------------: | -------------: |
 | v0.1.0 ~ v0.3.0     | v2.0 ~ v3.0     | 2017.09.3.0    |
 | v0.4.0              | v3.0 ~ v4.0 *1  | 2017.09.3.0    |
-| master branch       | v3.0 ~ v5.0     | 2017.09.3.0    |
+| v0.5.0              | v3.0 ~ v5.0 *2  | 2017.09.3.0    |
+| master branch       | v3.0 ~ v5.0 *2  | 2017.09.3.0    |
+
+[Footnote]
+
+*1: We used `FunctionNode` in [this PR](https://github.com/pfnet-research/chainer-chemistry/pull/190),
+which is introduced after chainer v3. See [this issue](https://github.com/pfnet-research/chainer-chemistry/issues/192) for details.
+
+*2: Saliency modules only work with chainer v5.
 
 ## Installation
 
@@ -79,11 +87,18 @@ The following graph convolutional neural networks are currently supported:
 - NFP: Neural Fingerprint [2, 3]
 - GGNN: Gated Graph Neural Network [4, 3]
 - WeaveNet [5, 3]
-- SchNet [6] 
+- SchNet [6]
 - RSGCN: Renormalized Spectral Graph Convolutional Network [10]<br/>
  \* The name is not from the original paper - see [PR #89](https://github.com/pfnet-research/chainer-chemistry/pull/89) for the naming convention.
 - RelGCN: Relational Graph Convolutional Network [14]
 - GAT: Graph Attention Networks [15]
+- GIN: Graph Isomorphism Networks [17]
+
+We test supporting the brand-new Graph Warp Module (GWM) [18]-attached models for:
+- NFP ('nfp_gwm')
+- GGNN ('ggnn_gwm')
+- RSGCN ('rsgcn_gwm')
+- GIN ('gin_gwm')
 
 ## Supported Datasets
 
@@ -101,6 +116,7 @@ If you use Chainer Chemistry in your research, feel free to submit a
 pull request and add the name of your project to this list:
 
  - BayesGrad: Explaining Predictions of Graph Convolutional Networks ([paper](https://arxiv.org/abs/1807.01985), [code](https://github.com/pfnet-research/bayesgrad))
+ - Graph Warp Module: an Auxiliary Module for Boosting the Power of Graph Neural Networks ([paper](https://arxiv.org/abs/1902.01020), [code](https://github.com/k-ishiguro/chainer-chemistry/tree/gwm_for_CC))
 
 ## Useful Links
 
@@ -161,3 +177,7 @@ papers. Use the library at your own risk.
 
 [15] Veličković, P., Cucurull, G., Casanova, A., Romero, A., Liò, P., & Bengio, Y. (2017). Graph Attention Networks. arXiv preprint arXiv:1710.10903.
 [16] Dan Busbridge, Dane Sherburn, Pietro Cavallo and Nils Y. Hammerla. (2019). Relational Graph Attention Networks. https://openreview.net/forum?id=Bklzkh0qFm
+
+[17] Keyulu Xu, Weihua Hu, Jure Leskovec, Stefanie Jegelka, ``How Powerful are Graph Neural Networks?'', 	arXiv:1810.00826 [cs.LG], 2018 (to appear at ICLR19).
+
+[18] K. Ishiguro, S. Maeda, and M. Koyama, ``Graph Warp Module: an Auxiliary Module for Boosting the Power of Graph Neural Networks'', arXiv:1902.01020 [cs.LG], 2019. 
